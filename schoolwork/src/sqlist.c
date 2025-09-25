@@ -71,3 +71,29 @@ void SqList_Print(const SqList *L) {
     }
     printf("\n");
 }
+
+void SqList_Partition(SqList *L) {
+    int low = 0;
+    int high = L->length-1;
+    ElementType pivot = L->data[base]
+    if (L->length < 2) {
+        return;
+    }
+    while (low < high) {
+        while (low < high && L->data[high] > pivot) {
+            high--;
+        }
+        if (low < high) {
+            L->data[low] = L->data[high];
+            low++;
+        }
+        while (low < high && L->data[high] <= pivot) {
+            low++;
+        }
+        if (low < high) {
+            L->data[high] = L->data[low]
+            high--;
+        }
+    }
+    L->data[low] = pivot;
+}

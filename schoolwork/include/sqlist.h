@@ -24,5 +24,6 @@ Status SqList_Insert(SqList *L, int i, ElementType e);
 Status SqList_Delete(SqList *L, int i, ElementType *e);
 int SqList_Find(const SqList *L, ElementType e);
 void SqList_Print(const SqList *L);
+void SqList_Partition(SqList *L);
 
 #endif
