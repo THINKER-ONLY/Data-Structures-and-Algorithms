@@ -40,6 +40,34 @@ Status SqList_Insert(SqList *L, int i, ElementType e) {
     return OK;
 }
 
-Status SqList_Delete(SqList *L, int i, ElementType *e);
-int SqList_Find(const SqList *L, ElementType e);
-void SqList_Print(const SqList *L);
+Status SqList_Delete(SqList *L, int i, ElementType *e) {
+    if (i<1 || i > L->length) {
+        return ERROR;
+    }
+    *e = L->data[i-1];
+    for(int j=i; j < L->length; j++) {
+        L->data[j-1] = L->data[j];
+    }
+    L->length--;
+    return OK;
+}
+
+int SqList_Find(const SqList *L, ElementType e) {
+    for(int j=0; j<L->length; j++) {
+        if(L->data[j]==e) {
+            return j+1;
+        }
+    }
+    return 0;
+}
+
+void SqList_Print(const SqList *L) {
+    if (L->length == 0) {
+        printf("SqList is Empty\n");
+        return;
+    }
+    for (int i = 0; i < L->length; ++i) {
+        printf("%d ", L->data[i]);
+    }
+    printf("\n");
+}
