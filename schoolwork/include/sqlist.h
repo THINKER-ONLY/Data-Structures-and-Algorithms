@@ -16,7 +16,7 @@ typedef struct{
     ElementType *data;
     int length;
     int capacity;
-} sqlist;
+} SqList;
 
 Status SqList_Init(SqList *L);
 Status SqList_Destroy(SqList *L);

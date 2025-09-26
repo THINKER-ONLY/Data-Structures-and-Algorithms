@@ -9,15 +9,15 @@ int main() {
     int n = sizeof(data) / sizeof(data[0]);
 
     for(int i=0; i<n; i++){
-        SqList_Insert(&list, i+1, data[i])
+        SqList_Insert(&list, i+1, data[i]);
     }
-    printf("原始顺序表:\n");
+    printf("\n");
     SqList_Print(&list);
 
-    printf("\n执行划分操作\n\n");
+    printf("\n\n");
     SqList_Partition(&list);
 
-    printf("划分后的顺序表:\n");
+    printf("\n");
     SqList_Print(&list);
     
     SqList_Destroy(&list);

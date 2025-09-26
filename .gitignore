@@ -1,0 +1,120 @@
+# Compiled executables and object files
+*.exe
+*.out
+*.o
+*.obj
+*.elf
+*.app
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Static and dynamic libraries
+*.lib
+*.a
+*.la
+*.lo
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Precompiled headers
+*.gch
+*.pch
+
+# Core dumps
+core
+
+# CMake build files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.cmake
+
+# Build directories
+build/
+Build/
+debug/
+Debug/
+release/
+Release/
+bin/
+obj/
+
+# IDE and editor files
+.vscode/
+.vs/
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.sln
+*.suo
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.bak
+*.backup
+
+# Code::Blocks files
+*.cbp
+*.depend
+*.layout
+
+# Dev-C++ files
+*.dev
+
+# Qt files
+*.pro.user*
+moc_*.cpp
+qrc_*.cpp
+ui_*.h
+
+# Python files (if any Python scripts are used)
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+*.pyo
+
+# Java files (if any Java code is present)
+*.class
+*.jar
+
+# Rust files (if any Rust code is present)
+target/
+Cargo.lock
+
+# Node.js files (if any JS is used)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Test output files
+test_output/
+*.test
+
+# Documentation build files
+docs/_build/
+site/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

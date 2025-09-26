@@ -25,15 +25,15 @@ Status SqList_Insert(SqList *L, int i, ElementType e) {
         return ERROR;
     }
     if (L->length >= L->capacity) {
-        ElementType *new_base = (ElementType *)realloc(L->data, (L->capacity + LIST_INCREMENT) * sizeof(ElementType *))
-        if (!L->new_base){
+        ElementType *new_base = (ElementType *)realloc(L->data, (L->capacity + LIST_INCREMENT) * sizeof(ElementType *));
+        if (!new_base){
             return ERROR;
         }
         L->data = new_base;
         L->capacity += LIST_INCREMENT;
     }
     for(int j=L->length; j>i; j--) {
-        L->data[j] = L->data[j-1]
+        L->data[j] = L->data[j-1];
     }
     L->data[i-1] = e;
     L->length++;
@@ -75,11 +75,12 @@ void SqList_Print(const SqList *L) {
 void SqList_Partition(SqList *L) {
     int low = 0;
     int high = L->length-1;
-    ElementType pivot = L->data[base]
+    ElementType pivot = L->data[low];
     if (L->length < 2) {
         return;
     }
     while (low < high) {
+
         while (low < high && L->data[high] > pivot) {
             high--;
         }
@@ -87,11 +88,12 @@ void SqList_Partition(SqList *L) {
             L->data[low] = L->data[high];
             low++;
         }
-        while (low < high && L->data[high] <= pivot) {
+
+        while (low < high && L->data[low] <= pivot) {
             low++;
         }
         if (low < high) {
-            L->data[high] = L->data[low]
+            L->data[high] = L->data[low];
             high--;
         }
     }
