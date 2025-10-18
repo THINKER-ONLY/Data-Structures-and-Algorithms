@@ -13,8 +13,6 @@ typedef int Status;
 #define FALSE 0
 #endif
 
-typedef int ElementType;
-
 typedef struct
 {
     ElementType *base;

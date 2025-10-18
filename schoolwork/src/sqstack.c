@@ -1,3 +1,4 @@
+#include "maze_types.h"
 #include "sqstack.h"
 
 #define STACK_INIT_SIZE 100

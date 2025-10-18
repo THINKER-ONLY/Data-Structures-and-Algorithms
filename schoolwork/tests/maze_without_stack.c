@@ -28,16 +28,16 @@ int findPath(int maze[MAZE_ROWS][MAZE_COLS], Pos currentPos,Pos end, Pos path[],
 
     if (currentPos.x == end.x && currentPos.y == end.y) return TRUE;
 
-    if (findPath((maze, (Pos){currentPos.x, currentPos.y + 1}, end, path, step + 1)) return TRUE;
+    if (findPath(maze, (Pos){currentPos.x, currentPos.y + 1}, end, path, step + 1)) return TRUE;
     
     // b. 尝试向南
-    if (findPath((maze, (Pos){currentPos.x + 1, currentPos.y}, end, path, step + 1)) return TRUE;
+    if (findPath(maze, (Pos){currentPos.x + 1, currentPos.y}, end, path, step + 1)) return TRUE;
     
     // c. 尝试向西
-    if (findPath((maze, (Pos){currentPos.x, currentPos.y - 1}, end, path, step + 1)) return TRUE;
+    if (findPath(maze, (Pos){currentPos.x, currentPos.y - 1}, end, path, step + 1)) return TRUE;
     
     // d. 尝试向北
-    if (findPath((maze, (Pos){currentPos.x - 1, currentPos.y}, end, path, step + 1)) return TRUE;
+    if (findPath(maze, (Pos){currentPos.x - 1, currentPos.y}, end, path, step + 1)) return TRUE;
 
     maze[currentPos.x][currentPos.y] = 0; 
     return FALSE;

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "maze_types.h"
 #include "sqstack.h"
 
 #define TRUE 1
@@ -8,24 +9,14 @@
 #define MAZE_ROWS 10
 #define MAZE_COLS 10
 
-typedef int Status;
-
-typedef struct {
-    int x;   
-    int y;  
-    int dir; 
-} Pos;
-
-typedef Pos ElementType;
-
 Status MazePath(int maze[MAZE_ROWS][MAZE_COLS], Pos start, Pos end, SqStack *S)
 {
     Pos currentPos;
     SqStack_Push(S, start);
-    maze[currentPos.x][currentPos.y] = 2;
+    maze[start.x][start.y] = 2;
     while (!SqStack_IsEmpty(S))
     {
-        SqStack_GetTop(*S, &currentPos);
+        SqStack_GetTop(S, &currentPos);
         if (currentPos.x == end.x && currentPos.y == end.y) return OK;
         int next_x, next_y;
         int find_next_step = FALSE;
@@ -52,7 +43,7 @@ Status MazePath(int maze[MAZE_ROWS][MAZE_COLS], Pos start, Pos end, SqStack *S)
 
 void PrintPath(const SqStack S)
 {
-    printf("找到的路径如下 (共 %d 步):\n", S.top);
+    printf("\nPath found as follows (total %d steps):\n", S.top);
     for(int i=0; i<S.top; i++)
     {
         printf("(%d,%d) ", S.base[i].x, S.base[i].y);
@@ -81,12 +72,12 @@ int main()
     SqStack pathStack;
     SqStack_Init(&pathStack);
 
-    printf("开始求解迷宫...\n");
+    printf("Starting to solve the maze...\n");
 
     if (MazePath(maze, start, end, &pathStack) == OK) {
         PrintPath(pathStack);
     } else {
-        printf("未找到从入口到出口的路径。\n");
+        printf("No path found from entrance to exit.\n");
     }
 
     SqStack_Destroy(&pathStack);
