@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVL 树全栈可视化系统</title>
+    
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <div class="app-layout">
+        <!-- Sidebar Controls -->
+        <aside class="sidebar">
+            <div class="brand">
+                <h1>AVL 可视化</h1>
+                <div class="version">v2.1 专业版</div>
+            </div>
+
+            <div class="control-panel">
+                <div class="panel-section">
+                    <h3>插入节点</h3>
+                    <div class="input-group">
+                        <input type="number" id="insertValue" placeholder="输入整数..." onkeydown="if(event.keyCode==13) insertNode()">
+                        <button class="btn btn-insert" onclick="insertNode()">
+                            <span>添加</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="panel-section">
+                    <h3>删除节点</h3>
+                    <div class="input-group">
+                        <input type="number" id="deleteValue" placeholder="目标值..." onkeydown="if(event.keyCode==13) deleteNode()">
+                        <button class="btn btn-delete" onclick="deleteNode()">
+                            <span>删除</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="panel-section system-actions">
+                    <button class="btn btn-reset" onclick="resetTree()">系统重置</button>
+                </div>
+
+                <div class="info-box">
+                    <h4>状态日志</h4>
+                    <div id="log-container">
+                        <div id="log-content">
+                            <div class="log-entry">系统已初始化。</div>
+                            <div class="log-entry">等待输入...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2026 数据结构课程项目
+            </div>
+        </aside>
+
+        <!-- Main Visualization Area -->
+        <main class="viewport">
+            <!-- Overlay Info -->
+            <div class="viewport-header">
+                <div class="status-indicator">
+                    <span class="dot"></span> 实时渲染
+                </div>
+            </div>
+            
+            <div id="mynetwork"></div>
+
+            <div class="tips-overlay">
+                滚轮缩放 • 拖拽平移 • 橙色节点正在旋转
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
